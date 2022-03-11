@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="primary-header">
+          <div class="menu"><img src="images/icon-menu.svg" alt="menu" /></div>
+
+          <a href="#" class="logo"><img src="images/logo.svg" alt="logo" /></a>
+          <nav class="nav">
+            <div class="slide-menu">
+              <div class="close-icon">
+                <img src="images/icon-close.svg" alt="close" />
+              </div>
+              <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link"> Collections</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="secondary-header">
+          <div class="cart-amount hidden">0</div>
+          <div class="cart-icon">
+            <img src="images/icon-cart.svg" alt="shopping-cart" />
+          </div>
+          <div class="avatar">
+            <img src="images/image-avatar.png" alt="avatar" />
+          </div>
+
+          <div class="shopping-cart hidden">
+            <div class="cart-header">Cart</div>
+            <div class="items-in-cart hidden">
+              <div class="item-img">
+                <img src="images/image-product-1-thumbnail.jpg" alt="item-img" />
+              </div>
+              <div class="item-info">
+                <p>Autumn limited edition...</p>
+                <p>$125 x <span class="no-of-items"></span> <span class="total-amount"></span></p>
+              </div>
+              <div class="delete-icon">
+                <img src="images/icon-delete.svg" alt="delete" />
+              </div>
+            </div>
+            <div class="message-empty hidden">Your cart is empty</div>
+            <div class="checkout hidden">Checkout</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main-container">
+        <section class="product-img-carousel">
+          <div class="main-img">
+            <button class="btn prev">
+              <img src="images/icon-previous.svg" alt="prev" />
+            </button>
+            <img src="images/image-product-1.jpg" alt="product-image" class="slides active" onclick="openModal()" />
+            <img src="images/image-product-2.jpg" alt="product-image" class="slides hidden" onclick="openModal()" />
+            <img src="images/image-product-3.jpg" alt="product-image" class="slides hidden" onclick="openModal()" />
+            <img src="images/image-product-4.jpg" alt="product-image" class="slides hidden" onclick="openModal()" />
+            <button class="btn next">
+              <img src="images/icon-next.svg" alt="next" />
+            </button>
+          </div>
+
+          <div class="image-thumbnails">
+            <div class="thumbnail active"><img src="images/image-product-1-thumbnail.jpg" alt="thumbnail1" onclick="showSlides(0)" /></div>
+            <div class="thumbnail"><img src="images/image-product-2-thumbnail.jpg" alt="thumbnail2" onclick="showSlides(1)" /></div>
+            <div class="thumbnail"><img src="images/image-product-3-thumbnail.jpg" alt="thumbnail3" onclick="showSlides(2)" /></div>
+            <div class="thumbnail"><img src="images/image-product-4-thumbnail.jpg" alt="thumbnail4" onclick="showSlides(3)" /></div>
+          </div>
+
+          <div class="modal" id="myModal">
+            <div class="modal-content">
+              <div class="mySlides-container">
+                <div class="close-modal" onclick="closeModal()">
+                  <img src="images/icon-close.svg" alt="close" />
+                </div>
+
+                <div class="mySlides">
+                  <img src="images/image-product-1.jpg" alt="product-1" />
+                </div>
+
+                <div class="mySlides">
+                  <img src="images/image-product-2.jpg" alt="product-2" />
+                </div>
+
+                <div class="mySlides">
+                  <img src="images/image-product-3.jpg" alt="product-3" />
+                </div>
+
+                <div class="mySlides">
+                  <img src="images/image-product-4.jpg" alt="product-4" />
+                </div>
+
+                <button class="btn modal-prev">
+                  <img src="images/icon-previous.svg" alt="prev" />
+                </button>
+                <button class="btn modal-next">
+                  <img src="images/icon-next.svg" alt="next" />
+                </button>
+              </div>
+
+              <div class="image-thumbnails">
+                <div class="modal-thumbnail active">
+                  <img src="images/image-product-1-thumbnail.jpg" alt="thumbnail1" />
+                </div>
+                <div class="modal-thumbnail">
+                  <img src="images/image-product-2-thumbnail.jpg" alt="thumbnail2" />
+                </div>
+                <div class="modal-thumbnail">
+                  <img src="images/image-product-3-thumbnail.jpg" alt="thumbnail3" />
+                </div>
+                <div class="modal-thumbnail">
+                  <img src="images/image-product-4-thumbnail.jpg" alt="thumbnail4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="product-detail">
+          <p class="product-brand">Sneaker Company</p>
+          <h1 class="product-type">Fall Limited Edition Sneakers</h1>
+          <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+          <div class="price">
+            <div class="current-price">
+              <h2>$125.00</h2>
+              <p>50%</p>
+            </div>
+            <div class="old-price">$250.00</div>
+          </div>
+
+          <div class="add-item">
+            <div class="counter">
+              <div class="minus">
+                <img src="images/icon-minus.svg" alt="minus" />
+              </div>
+              <div class="count">0</div>
+              <div class="plus">
+                <img src="images/icon-plus.svg" alt="plus" />
+              </div>
+            </div>
+            <button class="submit"><img src="images/icon-cart.svg" alt="shopping-cart" /> Add to cart</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
