@@ -102,6 +102,16 @@ modalPrev.addEventListener("click", () => {
   mySlide[currSlide].style.display = "block";
   modalThumbnails[currSlide].classList.add("active");
 });
+
+function showModal(n) {
+  removeCurrentSlide();
+  mySlide[currSlide].style.display = "none";
+  modalThumbnails[currSlide].classList.remove("active");
+  currSlide = n;
+  updateCurrentSlide();
+  mySlide[currSlide].style.display = "block";
+  modalThumbnails[currSlide].classList.add("active");
+}
 // prev.addEventListener("click", () => {
 //   removeCurrentSlide();
 //   currSlide--;
